@@ -1,0 +1,25 @@
+body{
+  background-color: #4A6FA5;
+}
+header {
+  background-color: #4A6FA5;
+  color: white;
+}
+button{
+  font-family: 'Abel', sans-serif;
+  font-weight: 400;
+  background-color: white;
+  color: #4A6FA5;
+  margin-top: 3rem;
+}
+
+input{
+  color: #4A6FA5;
+  font-family: 'Abel', sans-serif;
+  font-weight: 400;
+}
+
+.header{
+  font-family: 'Lobster', sans-serif;
+  color: white;
+}

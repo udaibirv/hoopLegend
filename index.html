@@ -4,14 +4,46 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>AJAX Project</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Abel&family=Lobster&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/reset.css">
   <link rel="stylesheet" href="css/layout.css">
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
   <header>
+    <h1>hoopLegend</h1>
   </header>
   <main>
+    <div class="container">
+      <form>
+      <div class="row">
+        <div class="column-full">
+          <div class="form-section">
+            <div class="header">
+              <label for="name">Name</label>
+            </div>
+            <input required type="text" id="name" class="form-input" name="name">
+          </div>
+          <div class="form-section">
+            <div class="header">
+              <label for="favTeam">Favorite Team</label>
+            </div>
+            <input required type="text" id="favTeam" class="form-input" name="favTeam">
+          </div>
+          <div class="form-section">
+            <div class="header">
+              <label for="email">Email</label>
+            </div>
+            <input required type="email" id="email" class="form-input" name="email">
+          </div>
+          <div class="form-section">
+            <button type="submit" class="submit-button">Submit</button>
+          </div>
+        </div>
+      </div>
+      </form>
+    </div>
   </main>
   <script src="js/data.js"></script>
   <script src="js/main.js"></script>
