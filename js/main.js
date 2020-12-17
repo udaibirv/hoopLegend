@@ -1,6 +1,7 @@
 var $submit = document.querySelector('.submit-button');
 var $form = document.querySelector('form');
 var $scoreHeader = document.querySelector('.scores-header')
+var $homeScore = document.querySelector('.homeScore');
 
 $form.addEventListener('submit', function(e){
   e.preventDefault();

@@ -29,3 +29,21 @@ xhr.addEventListener('load', function(e){
   }
 })
 xhr.send();
+
+
+  var game = new XMLHttpRequest();
+  game.open('GET', "https://www.balldontlie.io/api/v1/games");
+  game.responseType = 'json';
+  game.addEventListener('load', function(e){
+    var gamesArray = [];
+    for(var i = 0; i < game.response.data.length; i++){
+    gamesArray.push(game.response.data[i]);
+      if(data.profile.favTeam === game.response.data[i]["home_team"].full_name){
+        $homeScore.textContent = 'Boston lost the game ' + game.response.data[i]["home_team_score"] + ' to ' + game.response.data[i]["visitor_team_score"];
+        gamesArray.push(game.response.data[i]["home_team"]);
+        console.log(gamesArray);
+    }
+
+  }
+  })
+  game.send();
