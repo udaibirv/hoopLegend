@@ -3,6 +3,8 @@ var $form = document.querySelector('form');
 var $scoreHeader = document.querySelector('.scores-header')
 var $gameContainer = document.querySelector('#games-container');
 var $navList = document.querySelectorAll('.nav-list');
+var $scheduleHeader = document.querySelector('.schedule-header');
+var $scheduleBox = document.querySelector('.schedule-box');
 
 
 $form.addEventListener('submit', function(e){

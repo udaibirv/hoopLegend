@@ -46,6 +46,9 @@ button{
   margin: 2rem auto;
   text-align: center;
 }
+ul > li{
+  display: inline-block;
+}
 
 
 

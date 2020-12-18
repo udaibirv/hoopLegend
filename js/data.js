@@ -38,7 +38,6 @@ xhr.send();
   game.addEventListener('load', function(e){
     for(var i = 0; i < game.response.data.length; i++){
       if(data.profile.favTeam === game.response.data[i]["home_team"].full_name){
-
         var $row = document.createElement('div');
         $row.setAttribute('class', 'row');
         var $div2 = document.createElement('div');
@@ -80,3 +79,17 @@ xhr.send();
   }
   })
   game.send();
+
+var schedules = new XMLHttpRequest();
+schedules.open('GET', 'https://www.balldontlie.io/api/v1/games')
+schedules.responseType = 'json';
+schedules.addEventListener('load', function (e) {
+  for(var i = 0; i < schedules.response.data.length; i++){
+    var conferenceTeam = schedules.response.data[i]["home_team"]["conference"];
+    if(data.profile.favTeam === schedules.response.data[i]["home_team"].full_name){
+      var favTeamConference = schedules.response.data[i]["home_team"]["conference"];
+    }
+
+
+})
+schedules.send();
