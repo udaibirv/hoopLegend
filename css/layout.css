@@ -36,6 +36,18 @@ button{
   width: 30%;
   margin: auto;
 }
+.scores-header{
+  text-align: center;
+  color: white;
+}
+.score-box-1{
+  background-color: white;
+  width: 45%;
+  margin: 2rem auto;
+  text-align: center;
+}
+
+
 
 @media only screen and (max-width: 768px){
   button{
@@ -44,5 +56,11 @@ button{
   .form-section{
     margin-top: 1.5rem;
     width: 50%;
+  }
+  .scores-header{
+    width: 100%;
+  }
+  .score-box-1{
+    width: 90%;
   }
 }
