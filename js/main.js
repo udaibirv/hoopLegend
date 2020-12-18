@@ -7,6 +7,7 @@ var $scheduleHeader = document.querySelector('.schedule-header');
 var $scheduleBox = document.querySelector('.schedule-box');
 
 
+
 $form.addEventListener('submit', function(e){
   e.preventDefault();
   data.profile.name = $form.elements['name'].value;

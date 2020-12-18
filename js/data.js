@@ -91,7 +91,42 @@ schedules.addEventListener('load', function (e) {
     }
     $scheduleHeader.textContent = 'Other Games Played in ' + favTeamConference + 'ern Conference';
     if(favTeamConference === schedules.response.data[i]["home_team"]["conference"]){
+      console.log(schedules.response.data[i]["home_team_score"]);
+      var $row2 = document.createElement('div');
+      $row2.setAttribute('class' , 'row');
+      var $div3 = document.createElement('div');
+      $div3.setAttribute('class', 'schedule-box');
+      $row2.appendChild($div3);
 
+      var $dateTwo = document.createElement('h4');
+      $dateTwo.setAttribute('class', 'date-2');
+      $dateTwo.textContent = schedules.response.data[i]["date"].slice(0, 10);
+      $div3.appendChild($dateTwo);
+
+      var $homeTeam1 = document.createElement('h4');
+      $homeTeam1.setAttribute('class', 'home-one');
+      $homeTeam1.textContent = 'Home Team: ' + schedules.response.data.slice(2, 6)[i]["home_team"].full_name;
+      $div3.appendChild($homeTeam1);
+
+      var $awayTeam1 = document.createElement('h4');
+      $awayTeam1.setAttribute('class', 'away-two');
+      $awayTeam1.textContent = 'Away Team: ' + schedules.response.data.slice(2, 6)[i]["visitor_team"].full_name;
+      $div3.appendChild($awayTeam1);
+
+      var $score2 = document.createElement('p');
+      $score2.setAttribute('class', 'score-2');
+      if(schedules.response.data[i]["home_team_score"] > schedules.response.data[i]["visitor_team_score"]){
+        $score2.textContent = schedules.response.data.slice(2, 6)[i]["home_team"].full_name + 'won ' + '- ' +
+        schedules.response.data[i]["home_team_score"] + ' to ' + schedules.response.data[i]["visitor_team_score"];
+      }
+      if (schedules.response.data[i]["home_team_score"] < schedules.response.data[i]["visitor_team_score"]){
+        $score2.textContent = schedules.response.data.slice(2, 6)[i]["home_team"].full_name + 'lost ' + '- ' +
+          schedules.response.data[i]["home_team_score"] + ' to ' + schedules.response.data[i]["visitor_team_score"]
+      }
+      $div3.appendChild($score2);
+      $scheduleBox.appendChild($row2);
+      }
+    }
 
 
 })
