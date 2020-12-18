@@ -46,7 +46,7 @@ xhr.send();
 
         var $dateOne = document.createElement('h4');
         $dateOne.setAttribute('class', 'date-1');
-        $dateOne.textContent = game.response.data[i]["date"];
+        $dateOne.textContent = 'Date Played: ' + game.response.data[i]["date"].slice(0, 10);
         $div2.appendChild($dateOne);
 
         var $homeTeam = document.createElement('h5');
