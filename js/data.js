@@ -71,7 +71,7 @@ xhr.send();
           ' - ' + game.response.data[i]["visitor_team_score"];
         }
         $div2.appendChild($score1);
-        document.body.appendChild($row);
+        $gameContainer.appendChild($row);
     }
 
 
