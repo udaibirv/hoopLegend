@@ -89,6 +89,9 @@ schedules.addEventListener('load', function (e) {
     if(data.profile.favTeam === schedules.response.data[i]["home_team"].full_name){
       var favTeamConference = schedules.response.data[i]["home_team"]["conference"];
     }
+    $scheduleHeader.textContent = 'Other Games Played in ' + favTeamConference + 'ern Conference';
+    if(favTeamConference === schedules.response.data[i]["home_team"]["conference"]){
+
 
 
 })
