@@ -24,7 +24,8 @@ xhr.addEventListener('load', function(e){
 
   for(var i = 0; i < xhr.response.data.length; i++){
     if(data.profile.favTeam === xhr.response.data[i]["full_name"]){
-      $scoreHeader.textContent = 'Recent results for the ' + xhr.response.data[i]["full_name"];
+      $scoreHeader.textContent = 'Recent results for the ' +
+      xhr.response.data[i]["full_name"];
     }
   }
 })
@@ -62,10 +63,12 @@ xhr.send();
         var $score1 = document.createElement('p');
         $score1.setAttribute('class', 'score-1');
         if(game.response.data[i]["home_team_score"] > game.response.data[i]["visitor_team_score"]){
-          $score1.textContent = data.profile.favTeam + ' won the game ' + game.response.data[i]["home_team_score"] + ' - ' + game.response.data[i]["visitor_team_score"];
+          $score1.textContent = data.profile.favTeam + ' won the game ' + game.response.data[i]["home_team_score"] +
+          ' - ' + game.response.data[i]["visitor_team_score"];
         }
         if (game.response.data[i]["home_team_score"] < game.response.data[i]["visitor_team_score"]){
-          $score1.textContent = data.profile.favTeam + ' lost the game ' + game.response.data[i]["home_team_score"] + ' - ' + game.response.data[i]["visitor_team_score"];
+          $score1.textContent = data.profile.favTeam + ' lost the game ' + game.response.data[i]["home_team_score"] +
+          ' - ' + game.response.data[i]["visitor_team_score"];
         }
         $div2.appendChild($score1);
         document.body.appendChild($row);
