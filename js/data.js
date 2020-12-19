@@ -188,7 +188,7 @@ season.responseType = 'json';
 season.addEventListener('load', function(e){
   $upcomingSchedule.textContent = 'Upcoming Games for The: ' + data.profile.favTeam;
 for(var i = 0; i < season.response.data.length; i++){
-  console.log(season.response.data[i]);
+
 }
 })
 season.send();

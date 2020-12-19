@@ -8,6 +8,7 @@ var $scheduleBox = document.querySelector('.schedule-box');
 var $statsBox = document.querySelector('.stats-box');
 var $playerHeader = document.querySelector('.stats-header');
 var $upcomingSchedule = document.querySelector('.upcoming-schedule');
+var $scheduleBox2 = document.querySelector('.schedule-box-2');
 
 
 $form.addEventListener('submit', function(e){
