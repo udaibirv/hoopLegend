@@ -180,3 +180,15 @@ for(var i = 0; i < stats.response.data.length; i++){
 
 })
 stats.send();
+
+
+var season = new XMLHttpRequest();
+season.open('GET', "https://www.balldontlie.io/api/v1/games?start_date=2019-02-15&end_date=2019-04-11");
+season.responseType = 'json';
+season.addEventListener('load', function(e){
+  $upcomingSchedule.textContent = 'Upcoming Games for The: ' + data.profile.favTeam;
+for(var i = 0; i < season.response.data.length; i++){
+  console.log(season.response.data[i]);
+}
+})
+season.send();
