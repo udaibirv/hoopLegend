@@ -136,6 +136,47 @@ stats.responseType = 'json';
 stats.addEventListener('load', function(e){
 for(var i = 0; i < stats.response.data.length; i++){
   $playerHeader.textContent = 'Player Stats for The ' + data.profile.favTeam;
+  if(data.profile.favTeam === stats.response.data[i]["team"].full_name && stats.response.data[i]["pts"] > 10){
+    var $row3 = document.createElement('div');
+    $row3.setAttribute('class', 'row');
+    var $div4 = document.createElement('div');
+    $div4.setAttribute('class', 'player');
+    $row3.appendChild($div4);
+
+    var $playerName = document.createElement('h4');
+    $playerName.setAttribute('class', 'player-name');
+    $playerName.textContent = stats.response.data[i]["player"].first_name + ' ' +  stats.response.data[i]["player"].last_name;
+    $div4.appendChild($playerName);
+
+    var $dateThree = document.createElement('h4');
+    $dateThree.setAttribute('class', 'date');
+    $dateThree.textContent = 'Date Played: ' + stats.response.data[i]["game"].date.slice(0, 10);
+    $div4.appendChild($dateThree);
+
+    var $position = document.createElement('h4');
+    $position.setAttribute('class', 'position');
+    $position.textContent = 'POS: ' + stats.response.data[i]["player"].position;
+    $div4.appendChild($position);
+
+    var $points = document.createElement('h4');
+    $points.setAttribute('class', 'points');
+    $points.textContent = 'PTS: ' + stats.response.data[i]["pts"];
+    $div4.appendChild($points);
+
+    var $assists = document.createElement('h4');
+    $assists.setAttribute('class', 'assists');
+    $assists.textContent = 'AST: ' + stats.response.data[i]["ast"];
+    $div4.appendChild($assists);
+
+    var $rebounds = document.createElement('h4');
+    $rebounds.setAttribute('class', 'rebounds');
+    $rebounds.textContent = 'RBs: ' + stats.response.data[i]["reb"];
+    $div4.appendChild($rebounds);
+
+    $statsBox.appendChild($row3);
+  }
+
+}
 
 })
 stats.send();
