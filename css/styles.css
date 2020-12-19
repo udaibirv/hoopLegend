@@ -40,3 +40,6 @@ ul > li{
   color: white;
   font-family: 'Lobster', sans-serif;
 }
+li{
+  margin: 0 5px;
+}
