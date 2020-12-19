@@ -43,3 +43,12 @@ ul > li{
 li{
   margin: 0 5px;
 }
+
+.stats-box{
+  background-color: white;
+  font-family: 'Vast Shadow', sans-serif;
+  color: #4A6FA5;
+}
+.stats-header{
+  color: white;
+}

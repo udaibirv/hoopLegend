@@ -37,7 +37,7 @@ xhr.send();
   game.responseType = 'json';
   game.addEventListener('load', function(e){
     for(var i = 0; i < game.response.data.length; i++){
-      if(data.profile.favTeam === game.response.data[i]["home_team"].full_name){
+      if(data.profile.favTeam === game.response.data[i]["visitor_team"].full_name){
         var $row = document.createElement('div');
         $row.setAttribute('class', 'row');
         var $div2 = document.createElement('div');
@@ -62,11 +62,11 @@ xhr.send();
         var $score1 = document.createElement('p');
         $score1.setAttribute('class', 'score-1');
         if(game.response.data[i]["home_team_score"] > game.response.data[i]["visitor_team_score"]){
-          $score1.textContent = data.profile.favTeam + ' won the game ' + game.response.data[i]["home_team_score"] +
+          $score1.textContent = game.response.data[i]["home_team"].full_name + ' won the game ' + game.response.data[i]["home_team_score"] +
           ' - ' + game.response.data[i]["visitor_team_score"];
         }
         if (game.response.data[i]["home_team_score"] < game.response.data[i]["visitor_team_score"]){
-          $score1.textContent = data.profile.favTeam + ' lost the game ' + game.response.data[i]["home_team_score"] +
+          $score1.textContent = game.response.data[i]["visitor_team"].full_name + ' won the game ' + game.response.data[i]["home_team_score"] +
           ' - ' + game.response.data[i]["visitor_team_score"];
         }
         $div2.appendChild($score1);
@@ -85,9 +85,9 @@ schedules.open('GET', 'https://www.balldontlie.io/api/v1/games')
 schedules.responseType = 'json';
 schedules.addEventListener('load', function (e) {
   for(var i = 0; i < schedules.response.data.length; i++){
-    var conferenceTeam = schedules.response.data[i]["home_team"]["conference"];
-    if(data.profile.favTeam === schedules.response.data[i]["home_team"].full_name){
-      var favTeamConference = schedules.response.data[i]["home_team"]["conference"];
+    var conferenceTeam = schedules.response.data[i]["visitor_team"]["conference"];
+    if(data.profile.favTeam === schedules.response.data[i]["visitor_team"].full_name){
+      var favTeamConference = schedules.response.data[i]["visitor_team"]["conference"];
     }
     $scheduleHeader.textContent = 'Games Played in the ' + favTeamConference + 'ern Conference';
     if(favTeamConference === schedules.response.data[i]["home_team"]["conference"] && data.profile.favTeam !== schedules.response.data[i]["home_team"].full_name){
@@ -135,8 +135,7 @@ stats.open('GET', 'https://www.balldontlie.io/api/v1/stats');
 stats.responseType = 'json';
 stats.addEventListener('load', function(e){
 for(var i = 0; i < stats.response.data.length; i++){
-  console.log(stats.response.data[i]["player"]);
-}
+  $playerHeader.textContent = 'Player Stats for The ' + data.profile.favTeam;
 
 })
 stats.send();
