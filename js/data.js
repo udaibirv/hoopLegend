@@ -188,7 +188,33 @@ season.responseType = 'json';
 season.addEventListener('load', function(e){
   $upcomingSchedule.textContent = 'Upcoming Games for The: ' + data.profile.favTeam;
 for(var i = 0; i < season.response.data.length; i++){
+  if(data.profile.favTeam === season.response.data[i]["home_team"].full_name || data.profile.favTeam === season.response.data[i]["visitor_team"].full_name){
+    var $row4 = document.createElement('div');
+    $row4.setAttribute('class', 'row');
+    var $div5 = document.createElement('div');
+    $div5.setAttribute('class', 'schedule-box');
+    $row4.appendChild($div5);
+    var $dateFour = document.createElement('h4');
+    $dateFour.setAttribute('class', 'date-2');
+    $dateFour.textContent = 'Date of Game: ' + season.response.data[i]["date"].slice(0, 10);
+    $div5.appendChild($dateFour);
 
+    var $homeTeam2 = document.createElement('h4');
+    $homeTeam2.setAttribute('class', 'home-one');
+    $homeTeam2.textContent = 'Home Team: ' + season.response.data[i]["home_team"].full_name;
+    $div5.appendChild($homeTeam2);
+
+    var $awayTeam2 = document.createElement('h4');
+    $awayTeam2.setAttribute('class', 'away-two');
+    $awayTeam2.textContent = 'Away Team: ' + season.response.data[i]["visitor_team"].full_name;
+    $div5.appendChild($awayTeam2);
+
+    var $venue = document.createElement('h4');
+    $venue.setAttribute('class', 'venue');
+    $venue.textContent = 'The Game will be played in: ' + season.response.data[i]["home_team"].city;
+    $div5.appendChild($venue);
+    $scheduleBox2.appendChild($row4);
+  }
 }
 })
 season.send();
