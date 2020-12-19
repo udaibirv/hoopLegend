@@ -26,4 +26,20 @@ input{
 .score-box-1{
   font-family: 'Vast Shadow', sans-serif;
   color: #4A6FA5;
+  background-color: white;
+}
+.scores-header, .schedule-header{
+  color: white;
+}
+.schedule-box{
+  background-color: white;
+  font-family: 'Vast Shadow', sans-serif;
+  color: #4A6FA5;
+}
+ul > li{
+  color: white;
+  font-family: 'Lobster', sans-serif;
+}
+li{
+  margin: 0 5px;
 }

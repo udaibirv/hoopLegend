@@ -38,15 +38,23 @@ button{
 }
 .scores-header{
   text-align: center;
-  color: white;
 }
 .score-box-1{
-  background-color: white;
   width: 45%;
   margin: 2rem auto;
   text-align: center;
 }
+ul > li{
+  display: inline-block;
+}
+.schedule-box{
+  width: 55%;
+  margin: 2rem auto;
+}
+.schedule-header{
+  text-align: center;
 
+}
 
 
 @media only screen and (max-width: 768px){
@@ -62,5 +70,13 @@ button{
   }
   .score-box-1{
     width: 90%;
+  }
+  .schedule-box{
+    width: 90%;
+  }
+  ul > li{
+    position: relative;
+    right: 2rem;
+    bottom: 1rem;
   }
 }

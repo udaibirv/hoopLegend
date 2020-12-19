@@ -38,7 +38,6 @@ xhr.send();
   game.addEventListener('load', function(e){
     for(var i = 0; i < game.response.data.length; i++){
       if(data.profile.favTeam === game.response.data[i]["home_team"].full_name){
-
         var $row = document.createElement('div');
         $row.setAttribute('class', 'row');
         var $div2 = document.createElement('div');
@@ -71,7 +70,7 @@ xhr.send();
           ' - ' + game.response.data[i]["visitor_team_score"];
         }
         $div2.appendChild($score1);
-        document.body.appendChild($row);
+        $gameContainer.appendChild($row);
     }
 
 
@@ -80,3 +79,53 @@ xhr.send();
   }
   })
   game.send();
+
+var schedules = new XMLHttpRequest();
+schedules.open('GET', 'https://www.balldontlie.io/api/v1/games')
+schedules.responseType = 'json';
+schedules.addEventListener('load', function (e) {
+  for(var i = 0; i < schedules.response.data.length; i++){
+    var conferenceTeam = schedules.response.data[i]["home_team"]["conference"];
+    if(data.profile.favTeam === schedules.response.data[i]["home_team"].full_name){
+      var favTeamConference = schedules.response.data[i]["home_team"]["conference"];
+    }
+    $scheduleHeader.textContent = 'Games Played in the ' + favTeamConference + 'ern Conference';
+    if(favTeamConference === schedules.response.data[i]["home_team"]["conference"] && data.profile.favTeam !== schedules.response.data[i]["home_team"].full_name){
+      var $row2 = document.createElement('div');
+      $row2.setAttribute('class' , 'row');
+      var $div3 = document.createElement('div');
+      $div3.setAttribute('class', 'schedule-box');
+      $row2.appendChild($div3);
+      var $dateTwo = document.createElement('h4');
+      $dateTwo.setAttribute('class', 'date-2');
+      $dateTwo.textContent = 'Date Played: ' + schedules.response.data[i]["date"].slice(0, 10);
+      $div3.appendChild($dateTwo);
+
+      var $homeTeam1 = document.createElement('h4');
+      $homeTeam1.setAttribute('class', 'home-one');
+      $homeTeam1.textContent = 'Home Team: ' + schedules.response.data[i]["home_team"].full_name;
+      $div3.appendChild($homeTeam1);
+
+      var $awayTeam1 = document.createElement('h4');
+      $awayTeam1.setAttribute('class', 'away-two');
+      $awayTeam1.textContent = 'Away Team: ' + schedules.response.data[i]["visitor_team"].full_name;
+      $div3.appendChild($awayTeam1);
+
+      var $score2 = document.createElement('p');
+      $score2.setAttribute('class', 'score-2');
+      if(schedules.response.data[i]["home_team_score"] > schedules.response.data[i]["visitor_team_score"]){
+        $score2.textContent = schedules.response.data[i]["home_team"].full_name + ' won '  +
+        schedules.response.data[i]["home_team_score"] + ' - ' + schedules.response.data[i]["visitor_team_score"];
+      }
+      if (schedules.response.data[i]["home_team_score"] < schedules.response.data[i]["visitor_team_score"]){
+        $score2.textContent = schedules.response.data[i]["home_team"].full_name + ' lost ' +
+          schedules.response.data[i]["home_team_score"] + ' - ' + schedules.response.data[i]["visitor_team_score"]
+      }
+      $div3.appendChild($score2);
+      $scheduleBox.appendChild($row2);
+      }
+    }
+
+
+})
+schedules.send();

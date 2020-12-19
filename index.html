@@ -17,7 +17,7 @@
     <h1>hoopLegend</h1>
   </header>
   <main>
-    <div class="container">
+    <div data-view="profile" class="container">
       <form>
       <div class="row">
         <div class="column-full">
@@ -47,7 +47,14 @@
       </form>
     </div>
   </div>
-    <div class="container">
+  <div class="navbar">
+    <ul>
+      <li class="nav-list scores">Recent Results</li>
+      <li class="nav-list schedule">Around the Leauge</li>
+      <li class="nav-list player-stats">Player Stats</li>
+    </ul>
+  </div>
+    <div data-view="scores" class="container hidden" id="games-container">
       <div class="row">
         <div class="column-full">
           <h1 class="scores-header"></h1>
@@ -56,6 +63,17 @@
 
         </div>
 
+      </div>
+    </div>
+
+    <div data-view="schedule" class="container" id = schedule-container>
+      <div class="row">
+        <div class="column-full">
+          <h1 class="schedule-header"></h1>
+        </div>
+        </div>
+        <div class="schedule-box">
+        </div>
       </div>
     </div>
 
