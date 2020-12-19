@@ -55,7 +55,18 @@ ul > li{
   text-align: center;
 
 }
-
+.stats-header{
+  text-align: center;
+}
+.stats-box{
+  text-align: center;
+  width: 50%;
+  margin: auto;
+}
+.player{
+  text-align: center;
+  width: 100%;
+}
 
 @media only screen and (max-width: 768px){
   button{
@@ -78,5 +89,8 @@ ul > li{
     position: relative;
     right: 2rem;
     bottom: 1rem;
+  }
+  .stats-box{
+    width: 80%;
   }
 }

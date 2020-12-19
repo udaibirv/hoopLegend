@@ -37,7 +37,7 @@ xhr.send();
   game.responseType = 'json';
   game.addEventListener('load', function(e){
     for(var i = 0; i < game.response.data.length; i++){
-      if(data.profile.favTeam === game.response.data[i]["home_team"].full_name){
+      if(data.profile.favTeam === game.response.data[i]["visitor_team"].full_name){
         var $row = document.createElement('div');
         $row.setAttribute('class', 'row');
         var $div2 = document.createElement('div');
@@ -62,11 +62,11 @@ xhr.send();
         var $score1 = document.createElement('p');
         $score1.setAttribute('class', 'score-1');
         if(game.response.data[i]["home_team_score"] > game.response.data[i]["visitor_team_score"]){
-          $score1.textContent = data.profile.favTeam + ' won the game ' + game.response.data[i]["home_team_score"] +
+          $score1.textContent = game.response.data[i]["home_team"].full_name + ' won the game ' + game.response.data[i]["home_team_score"] +
           ' - ' + game.response.data[i]["visitor_team_score"];
         }
         if (game.response.data[i]["home_team_score"] < game.response.data[i]["visitor_team_score"]){
-          $score1.textContent = data.profile.favTeam + ' lost the game ' + game.response.data[i]["home_team_score"] +
+          $score1.textContent = game.response.data[i]["visitor_team"].full_name + ' won the game ' + game.response.data[i]["home_team_score"] +
           ' - ' + game.response.data[i]["visitor_team_score"];
         }
         $div2.appendChild($score1);
@@ -85,9 +85,9 @@ schedules.open('GET', 'https://www.balldontlie.io/api/v1/games')
 schedules.responseType = 'json';
 schedules.addEventListener('load', function (e) {
   for(var i = 0; i < schedules.response.data.length; i++){
-    var conferenceTeam = schedules.response.data[i]["home_team"]["conference"];
-    if(data.profile.favTeam === schedules.response.data[i]["home_team"].full_name){
-      var favTeamConference = schedules.response.data[i]["home_team"]["conference"];
+    var conferenceTeam = schedules.response.data[i]["visitor_team"]["conference"];
+    if(data.profile.favTeam === schedules.response.data[i]["visitor_team"].full_name){
+      var favTeamConference = schedules.response.data[i]["visitor_team"]["conference"];
     }
     $scheduleHeader.textContent = 'Games Played in the ' + favTeamConference + 'ern Conference';
     if(favTeamConference === schedules.response.data[i]["home_team"]["conference"] && data.profile.favTeam !== schedules.response.data[i]["home_team"].full_name){
@@ -129,3 +129,54 @@ schedules.addEventListener('load', function (e) {
 
 })
 schedules.send();
+
+var stats = new XMLHttpRequest();
+stats.open('GET', 'https://www.balldontlie.io/api/v1/stats');
+stats.responseType = 'json';
+stats.addEventListener('load', function(e){
+for(var i = 0; i < stats.response.data.length; i++){
+  $playerHeader.textContent = 'Player Stats for The ' + data.profile.favTeam;
+  if(data.profile.favTeam === stats.response.data[i]["team"].full_name && stats.response.data[i]["pts"] > 10){
+    var $row3 = document.createElement('div');
+    $row3.setAttribute('class', 'row');
+    var $div4 = document.createElement('div');
+    $div4.setAttribute('class', 'player');
+    $row3.appendChild($div4);
+
+    var $playerName = document.createElement('h4');
+    $playerName.setAttribute('class', 'player-name');
+    $playerName.textContent = stats.response.data[i]["player"].first_name + ' ' +  stats.response.data[i]["player"].last_name;
+    $div4.appendChild($playerName);
+
+    var $dateThree = document.createElement('h4');
+    $dateThree.setAttribute('class', 'date');
+    $dateThree.textContent = 'Date Played: ' + stats.response.data[i]["game"].date.slice(0, 10);
+    $div4.appendChild($dateThree);
+
+    var $position = document.createElement('h4');
+    $position.setAttribute('class', 'position');
+    $position.textContent = 'POS: ' + stats.response.data[i]["player"].position;
+    $div4.appendChild($position);
+
+    var $points = document.createElement('h4');
+    $points.setAttribute('class', 'points');
+    $points.textContent = 'PTS: ' + stats.response.data[i]["pts"];
+    $div4.appendChild($points);
+
+    var $assists = document.createElement('h4');
+    $assists.setAttribute('class', 'assists');
+    $assists.textContent = 'AST: ' + stats.response.data[i]["ast"];
+    $div4.appendChild($assists);
+
+    var $rebounds = document.createElement('h4');
+    $rebounds.setAttribute('class', 'rebounds');
+    $rebounds.textContent = 'RBs: ' + stats.response.data[i]["reb"];
+    $div4.appendChild($rebounds);
+
+    $statsBox.appendChild($row3);
+  }
+
+}
+
+})
+stats.send();

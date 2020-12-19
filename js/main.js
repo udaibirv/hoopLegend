@@ -5,7 +5,8 @@ var $gameContainer = document.querySelector('#games-container');
 var $navList = document.querySelectorAll('.nav-list');
 var $scheduleHeader = document.querySelector('.schedule-header');
 var $scheduleBox = document.querySelector('.schedule-box');
-
+var $statsBox = document.querySelector('.stats-box');
+var $playerHeader = document.querySelector('.stats-header');
 
 
 $form.addEventListener('submit', function(e){
