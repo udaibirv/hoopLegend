@@ -129,3 +129,14 @@ schedules.addEventListener('load', function (e) {
 
 })
 schedules.send();
+
+var stats = new XMLHttpRequest();
+stats.open('GET', 'https://www.balldontlie.io/api/v1/stats');
+stats.responseType = 'json';
+stats.addEventListener('load', function(e){
+for(var i = 0; i < stats.response.data.length; i++){
+  console.log(stats.response.data[i]["player"]);
+}
+
+})
+stats.send();
