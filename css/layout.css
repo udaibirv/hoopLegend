@@ -46,6 +46,8 @@ button{
 }
 ul > li{
   display: inline-block;
+  position: relative;
+  bottom: 12rem;
 }
 .schedule-box{
   width: 55%;
@@ -67,6 +69,13 @@ ul > li{
   text-align: center;
   width: 100%;
 }
+.upcoming-schedule{
+  text-align: center;
+}
+.schedule-box-2{
+  width: 100%;
+  text-align: center;
+}
 
 @media only screen and (max-width: 768px){
   button{
@@ -78,19 +87,132 @@ ul > li{
   }
   .scores-header{
     width: 100%;
+    position: relative;
+    bottom: 7rem;
   }
   .score-box-1{
-    width: 90%;
+    width: 100%;
+    position: relative;
+    bottom: 9rem;
+  }
+  .schedule-header{
+    position: relative;
+    bottom: 5rem;
   }
   .schedule-box{
     width: 90%;
+    position: relative;
+    bottom: 9rem;
+
   }
   ul > li{
     position: relative;
     right: 2rem;
-    bottom: 1rem;
+    bottom: 13rem;
+    font-size: x-small;
+  }
+  .stats-header{
+    position: relative;
+    bottom: 6rem;
   }
   .stats-box{
+    width: 90%;
+    position: relative;
+    bottom: 6rem;
+  }
+  .upcoming-schedule{
+    position: relative;
+    bottom: 6rem;
+  }
+  .schedule-box-2{
+    position: relative;
+    bottom: 3rem;
+  }
+}
+
+@media only screen and (max-width: 667px){
+  .schedule-box{
+    text-align: center;
+  }
+  .score-box-1{
     width: 80%;
   }
+}
+
+@media only screen and (max-width: 1024px) and (orientation: landscape){
+  .scores-header{
+    position: relative;
+    bottom: 6rem;
+  }
+  .score-box-1{
+    position: relative;
+    bottom: 8rem;
+  }
+  .stats-header{
+    margin-bottom: 4rem;
+  }
+  .stats-box{
+    margin-bottom: 8rem;
+  }
+  .schedule-header{
+    position: relative;
+    bottom: 6rem;
+  }
+  .schedule-box{
+    position: relative;
+    bottom: 2rem;
+  }
+
+  .stats-header{
+    position: relative;
+    bottom: 6rem;
+  }
+  .stats-box{
+    position: relative;
+    bottom: 4rem;
+  }
+  .upcoming-schedule{
+    position: relative;
+    bottom: 4rem;
+  }
+  .schedule-box-2{
+    position: relative;
+    bottom: 3rem;
+  }
+  ul > li{
+    position: relative;
+    right: 2.5rem;
+    font-size: x-small;
+  }
+}
+
+@media only screen and (max-width: 1024px) and (orientation: portrait){
+  .schedule-header{
+    padding-bottom: 5rem;
+  }
+
+  .schedule-box{
+    text-align: center;
+    position: relative;
+    bottom: 2rem;
+  }
+
+  .score-box-1{
+    width: 80%;
+
+  }
+  .stats-header{
+    margin-bottom: 5rem;
+  }
+  .stats-box{
+    margin-bottom: 22rem;
+  }
+  .upcoming-schedule{
+    margin-bottom: 13rem;
+  }
+  .schedule-box-2{
+    position: relative;
+    bottom: 16rem;
+  }
+
 }
