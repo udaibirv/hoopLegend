@@ -21,7 +21,6 @@ var xhr = new XMLHttpRequest();
 xhr.open('GET', 'https://www.balldontlie.io/api/v1/teams');
 xhr.responseType = 'json';
 xhr.addEventListener('load', function(e){
-
   for(var i = 0; i < xhr.response.data.length; i++){
     if(data.profile.favTeam === xhr.response.data[i]["full_name"]){
       $scoreHeader.textContent = 'Recent results for the ' +
