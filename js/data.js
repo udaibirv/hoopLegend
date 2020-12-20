@@ -83,7 +83,7 @@ game.open('GET', "https://www.balldontlie.io/api/v1/games?&end_date=2019-02-10")
   game.send();
 
 var schedules = new XMLHttpRequest();
-schedules.open('GET', 'https://www.balldontlie.io/api/v1/games')
+schedules.open('GET', 'https://www.balldontlie.io/api/v1/games?start_date=2019-02-09&end_date=2019-02-12');
 schedules.responseType = 'json';
 schedules.addEventListener('load', function (e) {
   for(var i = 0; i < schedules.response.data.length; i++){
@@ -137,7 +137,7 @@ stats.open('GET', 'https://www.balldontlie.io/api/v1/stats');
 stats.responseType = 'json';
 stats.addEventListener('load', function(e){
 for(var i = 0; i < stats.response.data.length; i++){
-  $playerHeader.textContent = 'Player Stats for The ' + data.profile.favTeam;
+  $playerHeader.textContent = 'Key Preformers for The ' + data.profile.favTeam;
   if(data.profile.favTeam === stats.response.data[i]["team"].full_name && stats.response.data[i]["pts"] >= 15){
     var $row3 = document.createElement('div');
     $row3.setAttribute('class', 'row');
