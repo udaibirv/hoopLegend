@@ -26,14 +26,17 @@ xhr.addEventListener('load', function(e){
     if(data.profile.favTeam === xhr.response.data[i]["full_name"]){
       $scoreHeader.textContent = 'Recent results for the ' +
       xhr.response.data[i]["full_name"];
+    } else if(data.profile.favTeam === null || data.profile.favTeam === undefined){
+      $scoreHeader.textContent = 'We are sorry, we do not have any information on this team, please choose another';
     }
+
   }
 })
 xhr.send();
 
 
   var game = new XMLHttpRequest();
-  game.open('GET', "https://www.balldontlie.io/api/v1/games");
+game.open('GET', "https://www.balldontlie.io/api/v1/games?&end_date=2019-02-10");
   game.responseType = 'json';
   game.addEventListener('load', function(e){
     for(var i = 0; i < game.response.data.length; i++){
@@ -90,7 +93,7 @@ schedules.addEventListener('load', function (e) {
       var favTeamConference = schedules.response.data[i]["visitor_team"]["conference"];
     }
     $scheduleHeader.textContent = 'Games Played in the ' + favTeamConference + 'ern Conference';
-    if(favTeamConference === schedules.response.data[i]["home_team"]["conference"] && data.profile.favTeam !== schedules.response.data[i]["home_team"].full_name){
+    if(favTeamConference === schedules.response.data[i]["home_team"]["conference"] && data.profile.favTeam !== schedules.response.data[i]["home_team"].full_name) {
       var $row2 = document.createElement('div');
       $row2.setAttribute('class' , 'row');
       var $div3 = document.createElement('div');
@@ -136,7 +139,7 @@ stats.responseType = 'json';
 stats.addEventListener('load', function(e){
 for(var i = 0; i < stats.response.data.length; i++){
   $playerHeader.textContent = 'Player Stats for The ' + data.profile.favTeam;
-  if(data.profile.favTeam === stats.response.data[i]["team"].full_name && stats.response.data[i]["pts"] > 10){
+  if(data.profile.favTeam === stats.response.data[i]["team"].full_name && stats.response.data[i]["pts"] >= 15){
     var $row3 = document.createElement('div');
     $row3.setAttribute('class', 'row');
     var $div4 = document.createElement('div');
@@ -186,7 +189,7 @@ var season = new XMLHttpRequest();
 season.open('GET', "https://www.balldontlie.io/api/v1/games?start_date=2019-02-15&end_date=2019-04-11");
 season.responseType = 'json';
 season.addEventListener('load', function(e){
-  $upcomingSchedule.textContent = 'Upcoming Games for The: ' + data.profile.favTeam;
+  $upcomingSchedule.textContent = 'Upcoming Games for The ' + data.profile.favTeam;
 for(var i = 0; i < season.response.data.length; i++){
   if(data.profile.favTeam === season.response.data[i]["home_team"].full_name || data.profile.favTeam === season.response.data[i]["visitor_team"].full_name){
     var $row4 = document.createElement('div');

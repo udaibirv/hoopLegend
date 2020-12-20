@@ -67,6 +67,13 @@ ul > li{
   text-align: center;
   width: 100%;
 }
+.upcoming-schedule{
+  text-align: center;
+}
+.schedule-box-2{
+  width: 100%;
+  text-align: center;
+}
 
 @media only screen and (max-width: 768px){
   button{
@@ -80,7 +87,7 @@ ul > li{
     width: 100%;
   }
   .score-box-1{
-    width: 90%;
+    width: 100%;
   }
   .schedule-box{
     width: 90%;
@@ -89,8 +96,49 @@ ul > li{
     position: relative;
     right: 2rem;
     bottom: 1rem;
+    font-size: x-small;
   }
   .stats-box{
     width: 80%;
+  }
+}
+
+@media only screen and (max-width: 667px){
+  .schedule-box{
+    text-align: center;
+  }
+}
+
+@media only screen and (max-width: 1024px) and (orientation: landscape){
+  .score-box-1{
+    position: relative;
+    bottom: 4rem;
+  }
+  .stats-header{
+    margin-bottom: 4rem;
+  }
+  .stats-box{
+    margin-bottom: 8rem;
+  }
+  .schedule-box{
+    margin-bottom: 4rem;
+  }
+}
+
+@media only screen and (max-width: 1024px) and (orientation: portrait){
+  .schedule-box{
+    text-align: center;
+    margin-bottom: 4rem;
+  }
+
+  .score-box-1{
+    width: 80%;
+
+  }
+  .stats-header{
+    margin-bottom: 5rem;
+  }
+  .stats-box{
+    margin-bottom: 22rem;
   }
 }
