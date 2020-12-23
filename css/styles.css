@@ -58,3 +58,7 @@ li{
 .schedule-box-2{
   font-family: 'Vast Shadow', sans-serif;
 }
+
+ul > li:hover, button:hover{
+  cursor: pointer;
+}
