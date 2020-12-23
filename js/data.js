@@ -198,9 +198,9 @@ schedules.send();
   season.open('GET', "https://www.balldontlie.io/api/v1/games?start_date=2019-02-15&end_date=2019-04-11");
   season.responseType = 'json';
   season.addEventListener('load', function(e){
-  $upcomingSchedule.textContent = 'Upcoming Games for The ' + data.profile.favTeam;
   for(var i = 0; i < season.response.data.length; i++){
     if(data.profile.favTeam === season.response.data[i]["home_team"].full_name || data.profile.favTeam === season.response.data[i]["visitor_team"].full_name){
+      $upcomingSchedule.textContent = 'Upcoming Games for The ' + data.profile.favTeam;
       if($scheduleBox2.children.length <= 2){
       var $row4 = document.createElement('div');
       $row4.setAttribute('class', 'row');
