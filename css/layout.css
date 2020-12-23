@@ -130,9 +130,13 @@ ul > li{
 
 
 @media only screen and (max-width: 667px) and (orientation: landscape){
+  h1{
+    position: relative;
+    top: 1rem;
+  }
   .navbar{
     position: relative;
-    bottom: 40px;
+    bottom: 64px;
   }
 
   .schedule-box{
@@ -140,6 +144,8 @@ ul > li{
   }
   .score-box-1{
     width: 80%;
+    position: relative;
+    top: 1px;
   }
 }
 
