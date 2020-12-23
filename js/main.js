@@ -16,7 +16,7 @@ $form.addEventListener('submit', function(e){
   data.profile.name = $form.elements['name'].value;
   data.profile.favTeam = $form.elements['favTeam'].value;
   data.profile.email = $form.elements['email'].value;
-  recentResults();
+  dataLoaded();
   changeView('scores');
 
 })
