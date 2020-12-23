@@ -80,10 +80,13 @@ function dataLoaded(){
 
 
 
-  }
-  }
-  })
-  game.send();
+    }
+    }
+      if($gameContainer.children.length === 0){
+        $scoreHeader.textContent = 'No data available'
+      }
+    })
+    game.send();
 
 
   var schedules = new XMLHttpRequest();
@@ -130,6 +133,9 @@ function dataLoaded(){
       $div3.appendChild($score2);
       $scheduleBox.appendChild($row2);
       }
+    }
+    if($scheduleBox.children.length === 0){
+      $scheduleHeader.textContent = 'No data available';
     }
 
 
