@@ -16,6 +16,7 @@ $form.addEventListener('submit', function(e){
   data.profile.name = $form.elements['name'].value;
   data.profile.favTeam = $form.elements['favTeam'].value;
   data.profile.email = $form.elements['email'].value;
+  recentResults();
   changeView('scores');
 
 })
@@ -37,3 +38,9 @@ for(var i = 0; i < $navList.length; i++){
 
   })
 }
+
+window.addEventListener('DOMContentLoaded', function (e) {
+  for (var key in data.profile) {
+    $form.elements[key].value = data.profile[key];
+  }
+})

@@ -12,11 +12,13 @@ window.addEventListener('beforeunload', function(e){
   localStorage.setItem('hoop-legends', stringData);
 })
 
+
+
 var returnData = localStorage.getItem('hoop-legends');
 if(returnData !== null){
   data = JSON.parse(returnData);
 }
-
+function recentResults(){
 var xhr = new XMLHttpRequest();
 xhr.open('GET', 'https://www.balldontlie.io/api/v1/teams');
 xhr.responseType = 'json';
@@ -39,7 +41,8 @@ game.open('GET', "https://www.balldontlie.io/api/v1/games?&end_date=2019-02-10")
   game.responseType = 'json';
   game.addEventListener('load', function(e){
     for(var i = 0; i < game.response.data.length; i++){
-      if(data.profile.favTeam === game.response.data[i]["visitor_team"].full_name){
+      if(data.profile.favTeam === game.response.data[i]["visitor_team"].full_name ||
+      data.profile.favTeam === game.response.data[i]["home_team"].full_name){
         var $row = document.createElement('div');
         $row.setAttribute('class', 'row');
         var $div2 = document.createElement('div');
@@ -82,6 +85,7 @@ game.open('GET', "https://www.balldontlie.io/api/v1/games?&end_date=2019-02-10")
   })
   game.send();
 
+
 var schedules = new XMLHttpRequest();
 schedules.open('GET', 'https://www.balldontlie.io/api/v1/games?start_date=2019-02-09&end_date=2019-02-12');
 schedules.responseType = 'json';
@@ -92,7 +96,7 @@ schedules.addEventListener('load', function (e) {
       var favTeamConference = schedules.response.data[i]["visitor_team"]["conference"];
     }
     $scheduleHeader.textContent = 'Games Played in the ' + favTeamConference + 'ern Conference';
-    if(favTeamConference === schedules.response.data[i]["home_team"]["conference"] && data.profile.favTeam !== schedules.response.data[i]["home_team"].full_name) {
+    if(favTeamConference === schedules.response.data[i]["home_team"]["conference"] && data.profile.favTeam !== schedules.response.data[i]["home_team"].full_name && $scheduleBox.children.length <= 6) {
       var $row2 = document.createElement('div');
       $row2.setAttribute('class' , 'row');
       var $div3 = document.createElement('div');
@@ -137,8 +141,9 @@ stats.open('GET', 'https://www.balldontlie.io/api/v1/stats');
 stats.responseType = 'json';
 stats.addEventListener('load', function(e){
 for(var i = 0; i < stats.response.data.length; i++){
-  $playerHeader.textContent = 'Key Preformers for The ' + data.profile.favTeam;
+  console.log(stats.response.data[i].team);
   if(data.profile.favTeam === stats.response.data[i]["team"].full_name && stats.response.data[i]["pts"] >= 15){
+    $playerHeader.textContent = 'Key Preformers for The ' + data.profile.favTeam;
     var $row3 = document.createElement('div');
     $row3.setAttribute('class', 'row');
     var $div4 = document.createElement('div');
@@ -177,7 +182,10 @@ for(var i = 0; i < stats.response.data.length; i++){
 
     $statsBox.appendChild($row3);
   }
-
+console.log($statsBox.children);
+}
+if($statsBox.children.length === 0){
+  $playerHeader.textContent = 'No data available';
 }
 
 })
@@ -220,3 +228,4 @@ for(var i = 0; i < season.response.data.length; i++){
 }
 })
 season.send();
+}
