@@ -27,10 +27,7 @@ function dataLoaded(){
     if(data.profile.favTeam === xhr.response.data[i]["full_name"]){
       $scoreHeader.textContent = 'Recent results for the ' +
       xhr.response.data[i]["full_name"];
-    } else if(data.profile.favTeam === null || data.profile.favTeam === undefined){
-      $scoreHeader.textContent = 'We are sorry, we do not have any information on this team, please choose another';
     }
-
   }
 })
   xhr.send();
@@ -82,7 +79,7 @@ function dataLoaded(){
 
     }
     }
-      if($gameContainer.children.length === 0){
+      if($gameContainer.children.length === 0 && xhr.response.data[i]["full_name"] !== data.profile.favTeam){
         $scoreHeader.textContent = 'No data available'
       }
     })
@@ -233,6 +230,9 @@ schedules.send();
   }
   }
   }
+    if($scheduleBox2.children.length === 0){
+      $upcomingSchedule.textContent = 'No data available';
+    }
   })
   season.send();
 }

@@ -77,7 +77,16 @@ ul > li{
   text-align: center;
 }
 
-@media only screen and (max-width: 768px){
+@media only screen and (max-width: 375px) and (orientation: portrait){
+  .navbar{
+    width: max-content;
+    position: relative;
+    right: 2rem;
+    font-size: small;
+  }
+  header{
+    margin-top: 4rem;
+  }
   button{
     width: 50%;
   }
@@ -88,12 +97,12 @@ ul > li{
   .scores-header{
     width: 100%;
     position: relative;
-    bottom: 7rem;
+    bottom: 2rem;
   }
   .score-box-1{
     width: 100%;
     position: relative;
-    bottom: 9rem;
+    bottom: 4rem;
   }
   .schedule-header{
     position: relative;
@@ -105,12 +114,7 @@ ul > li{
     bottom: 9rem;
 
   }
-  ul > li{
-    position: relative;
-    right: 2rem;
-    bottom: 13rem;
-    font-size: x-small;
-  }
+
   .stats-header{
     position: relative;
     bottom: 6rem;
@@ -120,17 +124,17 @@ ul > li{
     position: relative;
     bottom: 6rem;
   }
-  .upcoming-schedule{
-    position: relative;
-    bottom: 6rem;
-  }
-  .schedule-box-2{
-    position: relative;
-    bottom: 3rem;
-  }
+
 }
 
-@media only screen and (max-width: 667px){
+
+
+@media only screen and (max-width: 667px) and (orientation: landscape){
+  .navbar{
+    position: relative;
+    bottom: 40px;
+  }
+
   .schedule-box{
     text-align: center;
   }
@@ -140,6 +144,7 @@ ul > li{
 }
 
 @media only screen and (max-width: 1024px) and (orientation: landscape){
+
   .scores-header{
     position: relative;
     bottom: 6rem;
@@ -147,6 +152,7 @@ ul > li{
   .score-box-1{
     position: relative;
     bottom: 8rem;
+    width: 90%;
   }
   .stats-header{
     margin-bottom: 4rem;
@@ -179,14 +185,23 @@ ul > li{
     position: relative;
     bottom: 3rem;
   }
-  ul > li{
+  .navbar{
     position: relative;
     right: 2.5rem;
-    font-size: x-small;
+    font-size: small;
+    bottom: 10px;
   }
 }
 
-@media only screen and (max-width: 1024px) and (orientation: portrait){
+@media only screen and (max-width: 768px) and (orientation: portrait){
+  .navbar{
+    position: relative;
+    bottom: 45px;
+  }
+  h1{
+    position: relative;
+    top: 2rem;
+  }
   .schedule-header{
     padding-bottom: 5rem;
   }
@@ -208,11 +223,62 @@ ul > li{
     margin-bottom: 22rem;
   }
   .upcoming-schedule{
-    margin-bottom: 13rem;
+    margin-bottom: 22rem;
   }
   .schedule-box-2{
     position: relative;
-    bottom: 16rem;
+    bottom: 19rem;
   }
+
+}
+
+@media only screen and (max-width: 320px) and (orientation: portrait){
+.navbar{
+  width: max-content;
+  position: relative;
+  right: 38px;
+  font-size: x-small;
+}
+  h1{
+    position: relative;
+    top: 1rem;
+  }
+  .scores-header{
+    margin-bottom: 4rem;
+  }
+  .schedule-box-2{
+    position: relative;
+    bottom: 45px;
+  }
+  .schedule-header{
+    position: relative;
+    bottom: 4rem;
+  }
+
+  .upcoming-schedule{
+    position: relative;
+    bottom: 65px;
+  }
+
+
+}
+
+
+@media only screen and (max-width: 568px) and (orientation: landscape){
+h1{
+  position: relative;
+  top: 2rem;
+}
+.schedule-box{
+  position: relative;
+  top: 2rem;
+}
+.scores-header{
+  margin-bottom: 4rem;
+}
+.schedule-box-2{
+  position: relative;
+  top: 2rem;
+}
 
 }
