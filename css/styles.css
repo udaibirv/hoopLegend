@@ -7,11 +7,12 @@ header {
   font-size: x-large;
 }
 button{
-  font-family: 'Abel', sans-serif;
+  font-family: 'Lobster', sans-serif;
   font-weight: 400;
   background-color: white;
   color: #4A6FA5;
   margin-top: 3rem;
+  font-size: medium;
 }
 
 input{

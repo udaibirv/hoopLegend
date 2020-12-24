@@ -28,7 +28,12 @@ function dataLoaded(){
       $scoreHeader.textContent = 'Recent results for the ' +
       xhr.response.data[i]["full_name"];
     }
+    else if(data.profile.favTeam !== xhr.response.data[i]["full_name"] && data.profile.favTeam.length < 8){
+      $scoreHeader.textContent = 'data not available';
+    }
+
   }
+
 })
   xhr.send();
 
