@@ -23,8 +23,11 @@ h1{
 .form-section{
   display: flex;
   flex-direction: column;
-  width: 35%;
+  width: 55%;
   margin: auto;
+}
+.form-input{
+  height: 2.5rem;
 }
 input{
   margin-bottom: 1rem;
@@ -35,6 +38,7 @@ main{
 button{
   width: 30%;
   margin: auto;
+  height: 3rem;
 }
 .scores-header{
   text-align: center;
