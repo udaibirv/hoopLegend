@@ -52,6 +52,7 @@ ul > li{
   display: inline-block;
   position: relative;
   bottom: 12rem;
+  font-size: larger;
 }
 .schedule-box{
   width: 55%;
@@ -82,11 +83,13 @@ ul > li{
 }
 
 @media only screen and (max-width: 375px) and (orientation: portrait){
+  ul > li{
+    font-size: small;
+  }
   .navbar{
     width: max-content;
     position: relative;
     right: 2rem;
-    font-size: small;
   }
   header{
     margin-top: 4rem;
@@ -141,6 +144,7 @@ ul > li{
   .navbar{
     position: relative;
     bottom: 64px;
+    font-size: x-small;
   }
 
   .schedule-box{
@@ -195,15 +199,20 @@ ul > li{
     position: relative;
     bottom: 3rem;
   }
+  ul > li{
+    font-size: medium;
+  }
   .navbar{
     position: relative;
     right: 2.5rem;
-    font-size: small;
-    bottom: 10px;
+    bottom: 34px;
   }
 }
 
 @media only screen and (max-width: 768px) and (orientation: portrait){
+  ul > li{
+    font-size: smaller;
+  }
   .navbar{
     position: relative;
     bottom: 45px;
