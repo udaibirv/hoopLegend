@@ -9,7 +9,7 @@ var $statsBox = document.querySelector('.stats-box');
 var $playerHeader = document.querySelector('.stats-header');
 var $upcomingSchedule = document.querySelector('.upcoming-schedule');
 var $scheduleBox2 = document.querySelector('.schedule-box-2');
-
+var $modal = document.querySelector('.modal');
 
 $form.addEventListener('submit', function(e){
   e.preventDefault();
@@ -44,3 +44,7 @@ window.addEventListener('DOMContentLoaded', function (e) {
     $form.elements[key].value = data.profile[key];
   }
 })
+
+function showModal(){
+  $modal.className = "modal" + "-on";
+}

@@ -64,3 +64,15 @@ li{
 ul > li:hover, button:hover{
   cursor: pointer;
 }
+
+.modal-on{
+  text-align: center;
+  background-color: white;
+  color: black;
+  height: 200px;
+  width: 450px;
+  border-radius: 1%;
+  position: absolute;
+  left: 35%;
+  top: 25%;
+}
