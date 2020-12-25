@@ -14,6 +14,7 @@ var $modalButton = document.querySelector('.modal-button');
 var $body = document.querySelector('body');
 var $header = document.querySelector('header');
 var $navBar = document.querySelector('.navbar');
+var $open = document.querySelector('.open');
 
 
 
@@ -22,7 +23,10 @@ $form.addEventListener('submit', function(e){
   data.profile.name = $form.elements['name'].value;
   data.profile.favTeam = $form.elements['favTeam'].value;
   data.profile.email = $form.elements['email'].value;
-  dataLoaded();
+  resultFunction();
+  scheduleFunction();
+  statFunction();
+  upcomingGames();
   changeView('scores');
 
 })

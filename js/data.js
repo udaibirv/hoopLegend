@@ -18,7 +18,7 @@ var returnData = localStorage.getItem('hoop-legends');
 if(returnData !== null){
   data = JSON.parse(returnData);
 }
-function dataLoaded(){
+function resultFunction(){
   var xhr = new XMLHttpRequest();
   xhr.open('GET', 'https://www.balldontlie.io/api/v1/teams');
   xhr.responseType = 'json';
@@ -88,8 +88,9 @@ function dataLoaded(){
 
     })
     game.send();
+  }
 
-
+  function scheduleFunction(){
   var schedules = new XMLHttpRequest();
   schedules.open('GET', 'https://www.balldontlie.io/api/v1/games?start_date=2019-02-09&end_date=2019-02-12');
   schedules.responseType = 'json';
@@ -100,9 +101,7 @@ function dataLoaded(){
       var favTeamConference = schedules.response.data[i]["visitor_team"]["conference"];
       $scheduleHeader.textContent = 'Games Played in the ' + favTeamConference + 'ern Conference';
       }
-      if($scheduleHeader === 'Games Played in the undefinedern Confrence'){
-        showModal();
-      }
+
       if(favTeamConference === schedules.response.data[i]["home_team"]["conference"] && data.profile.favTeam !== schedules.response.data[i]["home_team"].full_name && $scheduleBox.children.length <= 6) {
         var $row2 = document.createElement('div');
         $row2.setAttribute('class' , 'row');
@@ -142,7 +141,9 @@ function dataLoaded(){
 
 })
 schedules.send();
+  }
 
+  function statFunction(){
   var stats = new XMLHttpRequest();
   stats.open('GET', 'https://www.balldontlie.io/api/v1/stats');
   stats.responseType = 'json';
@@ -188,13 +189,16 @@ schedules.send();
       $statsBox.appendChild($row3);
   }
 
+
 }
 
 
 })
   stats.send();
 
+  }
 
+  function upcomingGames(){
   var season = new XMLHttpRequest();
   season.open('GET', "https://www.balldontlie.io/api/v1/games?start_date=2019-02-15&end_date=2019-04-11");
   season.responseType = 'json';
@@ -236,4 +240,4 @@ schedules.send();
     }
   })
   season.send();
-}
+  }
