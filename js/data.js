@@ -29,10 +29,9 @@ function dataLoaded(){
       $scoreHeader.textContent = 'Recent results for the ' +
       xhr.response.data[i]["full_name"];
     }
-    else if(data.profile.favTeam !== xhr.response.data[i]["full_name"] && data.profile.favTeam.length < 8){
+    if($scoreHeader.textContent === ''){
       showModal();
     }
-
   }
 
 })
@@ -45,7 +44,6 @@ function dataLoaded(){
   game.addEventListener('load', function(e){
     for(var i = 0; i < game.response.data.length; i++){
       if(data.profile.favTeam === game.response.data[i]["visitor_team"].full_name || data.profile.favTeam === game.response.data[i]["home_team"].full_name){
-        hideModal();
         if($gameContainer.children.length <= 2){
         var $row = document.createElement('div');
         $row.setAttribute('class', 'row');
@@ -79,16 +77,15 @@ function dataLoaded(){
         }
         $div2.appendChild($score1);
         $gameContainer.appendChild($row);
-    }
-
-
-
 
     }
+
+
+
+
     }
-      if($gameContainer.children.length === 0 && xhr.response.data[i]["full_name"] !== data.profile.favTeam){
-        console.log('no');
-      }
+    }
+
     })
     game.send();
 
@@ -101,8 +98,11 @@ function dataLoaded(){
     var conferenceTeam = schedules.response.data[i]["visitor_team"]["conference"];
       if(data.profile.favTeam === schedules.response.data[i]["visitor_team"].full_name){
       var favTeamConference = schedules.response.data[i]["visitor_team"]["conference"];
-    }
       $scheduleHeader.textContent = 'Games Played in the ' + favTeamConference + 'ern Conference';
+      }
+      if($scheduleHeader === 'Games Played in the undefinedern Confrence'){
+        showModal();
+      }
       if(favTeamConference === schedules.response.data[i]["home_team"]["conference"] && data.profile.favTeam !== schedules.response.data[i]["home_team"].full_name && $scheduleBox.children.length <= 6) {
         var $row2 = document.createElement('div');
         $row2.setAttribute('class' , 'row');
@@ -137,11 +137,8 @@ function dataLoaded(){
       $div3.appendChild($score2);
       $scheduleBox.appendChild($row2);
       }
-    }
-    if($scheduleBox.children.length === 0){
-      console.log('no');
-    }
 
+    }
 
 })
 schedules.send();
@@ -152,7 +149,6 @@ schedules.send();
   stats.addEventListener('load', function(e){
   for(var i = 0; i < stats.response.data.length; i++){
     if(data.profile.favTeam === stats.response.data[i]["team"].full_name && stats.response.data[i]["pts"] >= 15){
-      hideModal();
       $playerHeader.textContent = 'Key Preformers for The ' + data.profile.favTeam;
       var $row3 = document.createElement('div');
       $row3.setAttribute('class', 'row');
@@ -193,9 +189,7 @@ schedules.send();
   }
 
 }
-  if($statsBox.children.length === 0){
-  console.log('no');
-}
+
 
 })
   stats.send();
