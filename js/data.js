@@ -25,6 +25,7 @@ function dataLoaded(){
   xhr.addEventListener('load', function(e){
   for(var i = 0; i < xhr.response.data.length; i++){
     if(data.profile.favTeam === xhr.response.data[i]["full_name"]){
+      hideModal();
       $scoreHeader.textContent = 'Recent results for the ' +
       xhr.response.data[i]["full_name"];
     }
@@ -44,6 +45,7 @@ function dataLoaded(){
   game.addEventListener('load', function(e){
     for(var i = 0; i < game.response.data.length; i++){
       if(data.profile.favTeam === game.response.data[i]["visitor_team"].full_name || data.profile.favTeam === game.response.data[i]["home_team"].full_name){
+        hideModal();
         if($gameContainer.children.length <= 2){
         var $row = document.createElement('div');
         $row.setAttribute('class', 'row');
@@ -85,7 +87,7 @@ function dataLoaded(){
     }
     }
       if($gameContainer.children.length === 0 && xhr.response.data[i]["full_name"] !== data.profile.favTeam){
-        $scoreHeader.textContent = 'No data available'
+        console.log('no');
       }
     })
     game.send();
@@ -137,7 +139,7 @@ function dataLoaded(){
       }
     }
     if($scheduleBox.children.length === 0){
-      $scheduleHeader.textContent = 'No data available';
+      console.log('no');
     }
 
 
@@ -150,13 +152,13 @@ schedules.send();
   stats.addEventListener('load', function(e){
   for(var i = 0; i < stats.response.data.length; i++){
     if(data.profile.favTeam === stats.response.data[i]["team"].full_name && stats.response.data[i]["pts"] >= 15){
+      hideModal();
       $playerHeader.textContent = 'Key Preformers for The ' + data.profile.favTeam;
       var $row3 = document.createElement('div');
       $row3.setAttribute('class', 'row');
       var $div4 = document.createElement('div');
       $div4.setAttribute('class', 'player');
       $row3.appendChild($div4);
-
       var $playerName = document.createElement('h4');
       $playerName.setAttribute('class', 'player-name');
       $playerName.textContent = stats.response.data[i]["player"].first_name + ' ' +  stats.response.data[i]["player"].last_name;
@@ -192,7 +194,7 @@ schedules.send();
 
 }
   if($statsBox.children.length === 0){
-  $playerHeader.textContent = 'No data available';
+  console.log('no');
 }
 
 })

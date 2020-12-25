@@ -1,11 +1,19 @@
 body{
   background-color: #4A6FA5;
 }
+body.modal{
+  background-color: rgb(51, 51, 51);
+}
+
 header {
   background-color: #4A6FA5;
   color: white;
   font-size: x-large;
 }
+header.modal{
+  display: none;
+}
+
 button{
   font-family: 'Lobster', sans-serif;
   font-weight: 400;
@@ -64,15 +72,35 @@ li{
 ul > li:hover, button:hover{
   cursor: pointer;
 }
-
-.modal-on{
+.modal-content{
   text-align: center;
-  background-color: white;
-  color: black;
-  height: 200px;
-  width: 450px;
+  position: absolute;
+  top: 35%;
+  left:35%;
+  background-color: #4A6FA5;
+  color: white;
+  height: 450px;
+  width: 670px;
+  font-family: 'Lobster', sans-serif;
+}
+.modal{
+  text-align: center;
   border-radius: 1%;
   position: absolute;
-  left: 35%;
-  top: 25%;
+  left: 30%;
+  top: 15%;
+}
+.modal-button{
+  position: relative;
+  top: 3.5rem;
+  right: 12rem;
+  font-size: large;
+
+}
+
+
+.jordan{
+  width: 45%;
+  position: relative;
+  left: 4rem;
 }

@@ -10,6 +10,12 @@ var $playerHeader = document.querySelector('.stats-header');
 var $upcomingSchedule = document.querySelector('.upcoming-schedule');
 var $scheduleBox2 = document.querySelector('.schedule-box-2');
 var $modal = document.querySelector('.modal');
+var $modalButton = document.querySelector('.modal-button');
+var $body = document.querySelector('body');
+var $header = document.querySelector('header');
+var $navBar = document.querySelector('.navbar');
+
+
 
 $form.addEventListener('submit', function(e){
   e.preventDefault();
@@ -45,6 +51,18 @@ window.addEventListener('DOMContentLoaded', function (e) {
   }
 })
 
+$modalButton.addEventListener('click', hideModal);
+
 function showModal(){
   $modal.className = "modal" + "-on";
+  $body.className = 'body ' + 'modal';
+  $header.className = 'header ' + 'modal';
+  $navBar.className = 'hidden';
+}
+
+function hideModal(){
+  $modal.className = 'hidden';
+  $body.className = 'body';
+  $header.className = 'header';
+  $navBar.className = 'navbar';
 }

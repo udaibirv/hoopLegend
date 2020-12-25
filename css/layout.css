@@ -81,6 +81,9 @@ ul > li{
   width: 100%;
   text-align: center;
 }
+.sorry{
+  font-size: larger;
+}
 
 @media only screen and (max-width: 375px) and (orientation: portrait){
   ul > li{
