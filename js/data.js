@@ -25,12 +25,8 @@ function resultFunction(){
   xhr.addEventListener('load', function(e){
   for(var i = 0; i < xhr.response.data.length; i++){
     if(data.profile.favTeam === xhr.response.data[i]["full_name"]){
-      hideModal();
       $scoreHeader.textContent = 'Recent results for the ' +
       xhr.response.data[i]["full_name"];
-    }
-    if($scoreHeader.textContent === ''){
-      showModal();
     }
   }
 
@@ -78,12 +74,13 @@ function resultFunction(){
         $div2.appendChild($score1);
         $gameContainer.appendChild($row);
 
+        }
+
+    }else if($gameContainer.children.length === 0){
+      showModal();
     }
 
 
-
-
-    }
     }
 
     })
@@ -188,13 +185,22 @@ schedules.send();
 
       $statsBox.appendChild($row3);
   }
+  if($statsBox.children.length === 0 && $navList[2]){
+    showModal();
+  }else{
+    hideModal();
+  }
 
 
 }
 
 
+
 })
+
+
   stats.send();
+
 
   }
 
