@@ -28,6 +28,12 @@ function resultFunction(){
       $scoreHeader.textContent = 'Recent results for the ' +
       xhr.response.data[i]["full_name"];
     }
+
+  }
+  if($scoreHeader.textContent === ''){
+    showModal();
+  }else{
+    hideModal();
   }
 
 })
@@ -76,16 +82,15 @@ function resultFunction(){
 
         }
 
-    }else if($gameContainer.children.length === 0){
-      showModal();
-    }
+      }
 
 
-    }
+  }
 
     })
     game.send();
-  }
+
+}
 
   function scheduleFunction(){
   var schedules = new XMLHttpRequest();
@@ -134,7 +139,15 @@ function resultFunction(){
       $scheduleBox.appendChild($row2);
       }
 
+
     }
+    if($scheduleHeader.textContent === ''){
+      showModal();
+    }else{
+      hideModal();
+    }
+
+
 
 })
 schedules.send();
@@ -185,22 +198,22 @@ schedules.send();
 
       $statsBox.appendChild($row3);
   }
-  if($statsBox.children.length === 0 && $navList[2]){
-    showModal();
-  }else{
-    hideModal();
-  }
 
 
 }
-
-
 
 })
 
 
   stats.send();
 
+  for(var i = 0; i < $view.length; i++){
+    if($view[i].getAttribute('data-view') === "player-stats" && $statsBox.children.length === 0){
+      showModal();
+    }else{
+      hideModal();
+    }
+  }
 
   }
 
@@ -241,9 +254,7 @@ schedules.send();
   }
   }
   }
-    if($scheduleBox2.children.length === 0){
-      $upcomingSchedule.textContent = 'No data available';
-    }
+
   })
   season.send();
   }

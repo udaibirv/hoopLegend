@@ -15,6 +15,7 @@ var $body = document.querySelector('body');
 var $header = document.querySelector('header');
 var $navBar = document.querySelector('.navbar');
 var $open = document.querySelector('.open');
+var $view = document.querySelectorAll('div[data-view]');
 
 
 
