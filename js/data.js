@@ -209,9 +209,9 @@ schedules.send();
 
   for(var i = 0; i < $view.length; i++){
     if($view[i].getAttribute('data-view') === "player-stats" && $statsBox.children.length === 0){
-      showModal();
+      return showModal();
     }else{
-      hideModal();
+    hideModal();
     }
   }
 
