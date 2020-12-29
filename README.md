@@ -12,3 +12,5 @@ hoopLegend enables a user to pick their favorite NBA team and access information
 * API data can sometimes be inconsistent so it is important to come up with workarounds when such problems arise 
 * Proper planning before writing any code goes a long way in terms of effiecency and can reduce amount of errors encountered 
 * How to recieve and manipulate data from an API 
+
+
