@@ -1,6 +1,4 @@
-.hidden{
-  display: none;
-}
+
 
 .container{
   max-width: 900px;
@@ -98,13 +96,7 @@ ul > li{
     margin-top: 4rem;
   }
 
-  .modal-content{
-    width: 50%;
-    position: relative;
-    right: 6rem;
-    text-align: center;
 
-  }
 
 
 
@@ -175,9 +167,7 @@ ul > li{
     position: relative;
     top: 3rem;
   }
-  .modal-content{
-    width: 40%;
-  }
+
 
 
 }
@@ -232,12 +222,7 @@ ul > li{
     right: 2.5rem;
     bottom: 34px;
   }
-  .modal-content{
-    position: relative;
-    width: 50%;
-    right: 5rem;
 
-  }
 }
 
 @media only screen and (max-width: 768px) and (orientation: portrait){
@@ -285,14 +270,7 @@ ul > li{
     bottom: 17rem;
   }
 
-  .modal-content{
-    width: 50%;
-    position: relative;
-    right: 6rem;
-    bottom: 4rem;
-    text-align: center;
 
-  }
 
 
 }
@@ -324,13 +302,7 @@ ul > li{
     position: relative;
     bottom: 65px;
   }
-  .modal-content{
-    width: 46%;
-    position: relative;
-    right: 4rem;
-    text-align: center;
 
-  }
 
 
 }
@@ -353,12 +325,6 @@ h1{
   top: 2rem;
 }
 
-.modal-content{
-    width: 45%;
-    position: relative;
-    right: 4rem;
-    text-align: center;
 
-  }
 
 }
