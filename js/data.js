@@ -24,7 +24,7 @@ function resultFunction(){
   xhr.open('GET', 'https://www.balldontlie.io/api/v1/teams');
   xhr.responseType = 'json';
   xhr.addEventListener('load', function(e){
-  for(var i = 0; i < xhr.response.data.length; i++){
+    for(var i = 0; i < xhr.response.data.length; i++){
     if(data.profile.favTeam === xhr.response.data[i]["full_name"]){
       $scoreHeader.textContent = 'Recent results for the ' +
       xhr.response.data[i]["full_name"];
@@ -95,14 +95,14 @@ function resultFunction(){
 }
 
   function scheduleFunction(){
-  var schedules = new XMLHttpRequest();
-  schedules.open('GET', 'https://www.balldontlie.io/api/v1/games?start_date=2019-02-09&end_date=2019-02-12');
-  schedules.responseType = 'json';
-  schedules.addEventListener('load', function (e) {
+    var schedules = new XMLHttpRequest();
+    schedules.open('GET', 'https://www.balldontlie.io/api/v1/games?start_date=2019-02-09&end_date=2019-02-12');
+    schedules.responseType = 'json';
+    schedules.addEventListener('load', function (e) {
     var isDataUsable = false
 
-    for(var i = 0; i < schedules.response.data.length; i++){
-    var conferenceTeam = schedules.response.data[i]["visitor_team"]["conference"];
+      for(var i = 0; i < schedules.response.data.length; i++){
+      var conferenceTeam = schedules.response.data[i]["visitor_team"]["conference"];
       if(data.profile.favTeam === schedules.response.data[i]["visitor_team"].full_name){
       var favTeamConference = schedules.response.data[i]["visitor_team"]["conference"];
       $scheduleHeader.textContent = 'Games Played in the ' + favTeamConference + 'ern Conference';
@@ -141,12 +141,12 @@ function resultFunction(){
         $score2.textContent = schedules.response.data[i]["home_team"].full_name + ' lost ' +
           schedules.response.data[i]["home_team_score"] + ' - ' + schedules.response.data[i]["visitor_team_score"]
       }
-      $div3.appendChild($score2);
-      $scheduleBox.appendChild($row2);
+        $div3.appendChild($score2);
+        $scheduleBox.appendChild($row2);
       }
 
 
-    }
+      }
 
     if (!isDataUsable) {
       data.pagesWithNoData.push('schedule');
@@ -166,7 +166,6 @@ schedules.send();
     stats.responseType = 'json';
     stats.addEventListener('load', function(e){
       var isDataUsable = false
-      console.log(stats.response.data)
       for(var i = 0; i < stats.response.data.length; i++){
         if(data.profile.favTeam === stats.response.data[i]["team"].full_name && stats.response.data[i]["pts"] >= 15){
           isDataUsable = true
@@ -222,7 +221,7 @@ schedules.send();
   season.responseType = 'json';
   season.addEventListener('load', function(e){
     var isDataUsable = false
-  for(var i = 0; i < season.response.data.length; i++){
+    for(var i = 0; i < season.response.data.length; i++){
     if(data.profile.favTeam === season.response.data[i]["home_team"].full_name || data.profile.favTeam === season.response.data[i]["visitor_team"].full_name){
       $upcomingSchedule.textContent = 'Upcoming Games for The ' + data.profile.favTeam;
       isDataUsable = true
