@@ -9,6 +9,14 @@ var $statsBox = document.querySelector('.stats-box');
 var $playerHeader = document.querySelector('.stats-header');
 var $upcomingSchedule = document.querySelector('.upcoming-schedule');
 var $scheduleBox2 = document.querySelector('.schedule-box-2');
+var $modal = document.querySelector('.modal');
+var $modalButton = document.querySelector('.modal-button');
+var $body = document.querySelector('body');
+var $header = document.querySelector('header');
+var $navBar = document.querySelector('.navbar');
+var $open = document.querySelector('.open');
+var $view = document.querySelectorAll('div[data-view]');
+
 
 
 $form.addEventListener('submit', function(e){
@@ -16,19 +24,26 @@ $form.addEventListener('submit', function(e){
   data.profile.name = $form.elements['name'].value;
   data.profile.favTeam = $form.elements['favTeam'].value;
   data.profile.email = $form.elements['email'].value;
-  dataLoaded();
+  resultFunction();
+  scheduleFunction();
+  statFunction();
+  upcomingGames();
   changeView('scores');
 
 })
 
 function changeView(page){
   var $view = document.querySelectorAll('div[data-view]');
+  hideModal()
   for(var i = 0; i < $view.length; i++){
     if($view[i].getAttribute('data-view') === page){
       $view[i].className = '';
     }else{
       $view[i].className = 'hidden';
     }
+  }
+  if(data.pagesWithNoData.includes(page)) {
+    showModal();
   }
 }
 
@@ -44,3 +59,17 @@ window.addEventListener('DOMContentLoaded', function (e) {
     $form.elements[key].value = data.profile[key];
   }
 })
+
+$modalButton.addEventListener('click', hideModal);
+
+function showModal(){
+  $modal.className = "modal";
+  $header.className = 'header ' + 'modal';
+  $navBar.className = 'hidden';
+}
+
+function hideModal(){
+  $modal.className = 'hidden';
+  $header.className = 'header';
+  $navBar.className = 'navbar';
+}
