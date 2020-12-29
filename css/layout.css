@@ -97,6 +97,19 @@ ul > li{
   header{
     margin-top: 4rem;
   }
+
+  .modal-content{
+    width: 50%;
+    position: relative;
+    right: 6rem;
+    text-align: center;
+
+  }
+
+
+
+
+
   button{
     width: 50%;
   }
@@ -158,6 +171,15 @@ ul > li{
     position: relative;
     top: 1px;
   }
+  .schedule-box-2{
+    position: relative;
+    top: 3rem;
+  }
+  .modal-content{
+    width: 40%;
+  }
+
+
 }
 
 @media only screen and (max-width: 1024px) and (orientation: landscape){
@@ -210,6 +232,12 @@ ul > li{
     right: 2.5rem;
     bottom: 34px;
   }
+  .modal-content{
+    position: relative;
+    width: 55%;
+    right: 9rem;
+
+  }
 }
 
 @media only screen and (max-width: 768px) and (orientation: portrait){
@@ -225,7 +253,7 @@ ul > li{
     top: 2rem;
   }
   .schedule-header{
-    padding-bottom: 5rem;
+    padding-bottom: 7rem;
   }
 
   .schedule-box{
@@ -233,9 +261,14 @@ ul > li{
     position: relative;
     bottom: 2rem;
   }
-
+  .scores-header{
+    position: relative;
+    bottom: 2.5rem;
+  }
   .score-box-1{
     width: 80%;
+    position: relative;
+    bottom: 5rem;
 
   }
   .stats-header{
@@ -249,8 +282,18 @@ ul > li{
   }
   .schedule-box-2{
     position: relative;
-    bottom: 19rem;
+    bottom: 17rem;
   }
+
+  .modal-content{
+    width: 45%;
+    position: relative;
+    right: 4rem;
+    bottom: 4rem;
+    text-align: center;
+
+  }
+
 
 }
 
@@ -281,6 +324,13 @@ ul > li{
     position: relative;
     bottom: 65px;
   }
+  .modal-content{
+    width: 40%;
+    position: relative;
+    right: 4rem;
+    text-align: center;
+
+  }
 
 
 }
@@ -302,5 +352,14 @@ h1{
   position: relative;
   top: 2rem;
 }
+
+.modal-content{
+    width: 47%;
+    position: relative;
+    top: 1rem;
+    right: 4rem;
+    text-align: center;
+
+  }
 
 }

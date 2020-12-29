@@ -34,12 +34,16 @@ $form.addEventListener('submit', function(e){
 
 function changeView(page){
   var $view = document.querySelectorAll('div[data-view]');
+  hideModal()
   for(var i = 0; i < $view.length; i++){
     if($view[i].getAttribute('data-view') === page){
       $view[i].className = '';
     }else{
       $view[i].className = 'hidden';
     }
+  }
+  if(data.pagesWithNoData.includes(page)) {
+    showModal();
   }
 }
 
@@ -59,15 +63,13 @@ window.addEventListener('DOMContentLoaded', function (e) {
 $modalButton.addEventListener('click', hideModal);
 
 function showModal(){
-  $modal.className = "modal" + "-on";
-  $body.className = 'body ' + 'modal';
+  $modal.className = "modal";
   $header.className = 'header ' + 'modal';
   $navBar.className = 'hidden';
 }
 
 function hideModal(){
   $modal.className = 'hidden';
-  $body.className = 'body';
   $header.className = 'header';
   $navBar.className = 'navbar';
 }
