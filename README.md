@@ -1,7 +1,6 @@
 # hoopLegend
 hoopLegend enables a user to pick their favorite NBA team and access information based on their selection. The information was taken from a free to use API called 'balldontlie'.  
 
-[Link to live demo](https://udaibirv.github.io/ajax-project/)
 
 ## Features 
 1. User can create a profile and choose their favorite team
