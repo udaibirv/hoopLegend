@@ -1,22 +1,22 @@
-var $submit = document.querySelector('.submit-button');
-var $form = document.querySelector('form');
-var $scoreHeader = document.querySelector('.scores-header')
-var $gameContainer = document.querySelector('#games-container');
-var $navList = document.querySelectorAll('.nav-list');
-var $scheduleHeader = document.querySelector('.schedule-header');
-var $scheduleBox = document.querySelector('.schedule-box');
-var $statsBox = document.querySelector('.stats-box');
-var $playerHeader = document.querySelector('.stats-header');
-var $upcomingSchedule = document.querySelector('.upcoming-schedule');
-var $scheduleBox2 = document.querySelector('.schedule-box-2');
-var $modal = document.querySelector('.modal');
-var $modalButton = document.querySelector('.modal-button');
-var $body = document.querySelector('body');
-var $header = document.querySelector('header');
-var $navBar = document.querySelector('.navbar');
-var $open = document.querySelector('.open');
-var $view = document.querySelectorAll('div[data-view]');
-
+const $submit = document.querySelector('.submit-button');
+const $form = document.querySelector('form');
+const $scoreHeader = document.querySelector('.scores-header')
+const $gameContainer = document.querySelector('#games-container');
+const $navList = document.querySelectorAll('.nav-list');
+const $scheduleHeader = document.querySelector('.schedule-header');
+const $scheduleBox = document.querySelector('.schedule-box');
+const $statsBox = document.querySelector('.stats-box');
+const $playerHeader = document.querySelector('.stats-header');
+const $upcomingSchedule = document.querySelector('.upcoming-schedule');
+const $scheduleBox2 = document.querySelector('.schedule-box-2');
+const $modal = document.querySelector('.modal');
+const $modalButton = document.querySelector('.modal-button');
+const $body = document.querySelector('body');
+const $header = document.querySelector('header');
+const $navBar = document.querySelector('.navbar');
+const $open = document.querySelector('.open');
+let $view = document.querySelectorAll('div[data-view]');
+let favTeamConference;
 
 
 $form.addEventListener('submit', function(e){
@@ -32,10 +32,10 @@ $form.addEventListener('submit', function(e){
 
 })
 
-function changeView(page){
-  var $view = document.querySelectorAll('div[data-view]');
+const changeView = (page) =>{
+  let $view = document.querySelectorAll('div[data-view]');
   hideModal()
-  for(var i = 0; i < $view.length; i++){
+  for(let i = 0; i < $view.length; i++){
     if($view[i].getAttribute('data-view') === page){
       $view[i].className = '';
     }else{
@@ -47,15 +47,15 @@ function changeView(page){
   }
 }
 
-for(var i = 0; i < $navList.length; i++){
-  $navList[i].addEventListener('click', function(e){
+for(let i = 0; i < $navList.length; i++){
+  $navList[i].addEventListener('click', (e) =>{
     changeView(e.target.classList[1]);
 
   })
 }
 
-window.addEventListener('DOMContentLoaded', function (e) {
-  for (var key in data.profile) {
+window.addEventListener('DOMContentLoaded', (e) => {
+  for (let key in data.profile) {
     $form.elements[key].value = data.profile[key];
   }
 })
