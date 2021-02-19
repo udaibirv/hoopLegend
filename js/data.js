@@ -5,20 +5,10 @@ let data = {
     favTeam: '',
     email: ''
   },
-  pagesWithNoData: []
+  pagesWithNoData : []
 }
 
-window.addEventListener('beforeunload', (e) => {
-  const stringData = JSON.stringify(data);
-  localStorage.setItem('hoop-legends', stringData);
-})
 
-
-
-const returnData = localStorage.getItem('hoop-legends');
-if(returnData !== null){
-  data = JSON.parse(returnData);
-}
 const resultFunction = () => {
   let xhr = new XMLHttpRequest();
   xhr.open('GET', 'https://www.balldontlie.io/api/v1/teams');
@@ -93,6 +83,7 @@ const resultFunction = () => {
     game.send();
 
 }
+
 
   const scheduleFunction = () => {
     let schedules = new XMLHttpRequest();
@@ -206,6 +197,8 @@ schedules.send();
           $div4.appendChild($rebounds);
 
           $statsBox.appendChild($row3);
+      }else{
+        $playerHeader.textContent = 'Player Stats';
       }
       }
       if (!isDataUsable) {

@@ -41,6 +41,7 @@ const changeView = (page) =>{
     }else{
       $view[i].className = 'hidden';
     }
+
   }
   if(data.pagesWithNoData.includes(page)) {
     showModal();
@@ -54,17 +55,13 @@ for(let i = 0; i < $navList.length; i++){
   })
 }
 
-window.addEventListener('DOMContentLoaded', (e) => {
-  for (let key in data.profile) {
-    $form.elements[key].value = data.profile[key];
-  }
-})
+
 
 $modalButton.addEventListener('click', hideModal);
 
 function showModal(){
   $modal.className = "modal";
-  $header.className = 'header ' + 'modal';
+  $header.className = 'header ';
   $navBar.className = 'hidden';
 }
 
